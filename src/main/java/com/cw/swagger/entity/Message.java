@@ -46,7 +46,7 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message{" +
+		return "MessageService{" +
 				"id=" + id +
 				", text='" + text + '\'' +
 				", summary='" + summary + '\'' +

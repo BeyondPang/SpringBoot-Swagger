@@ -1,7 +1,8 @@
 package com.cw.swagger.controller;
 
 import com.cw.swagger.config.BaseResult;
-import com.cw.swagger.service.Message;
+import com.cw.swagger.entity.Message;
+import com.cw.swagger.service.MessageService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
 public class MessageController {
 
 	@Autowired
-	private Message message;
+	private MessageService messageService;
 
 	@ApiOperation(
 			value = "消息列表",
@@ -23,8 +24,8 @@ public class MessageController {
 			consumes="application/json, application/xml",
 			response = List.class)
 	@GetMapping(value = "messages")
-	public List<com.cw.swagger.entity.Message> list() {
-		List<com.cw.swagger.entity.Message> messages = this.message.findAll();
+	public List<Message> list() {
+		List<Message> messages = this.messageService.findAll();
 		return messages;
 	}
 
@@ -38,9 +39,9 @@ public class MessageController {
 			@ApiImplicitParam(name = "summary", value = "摘要", required = false, dataType = "String", paramType = "query"),
 	})
 	@PostMapping(value = "message")
-	public com.cw.swagger.entity.Message create(com.cw.swagger.entity.Message message) {
+	public Message create(Message message) {
 		System.out.println("message===="+message.toString());
-		message = this.message.save(message);
+		message = this.messageService.save(message);
 		return message;
 	}
 
@@ -56,18 +57,27 @@ public class MessageController {
 			@ApiResponse(code = 104, message = "请求路径不存在"),
 			@ApiResponse(code = 200, message = "服务器内部错误")
 	})
-	public com.cw.swagger.entity.Message modify(com.cw.swagger.entity.Message message) {
-		com.cw.swagger.entity.Message messageResult=this.message.update(message);
+	public Message modify(Message message) {
+		Message messageResult=this.messageService.update(message);
 		return messageResult;
 	}
 
 	@ApiOperation(
+			value = "消息补丁"
+	)
+	@PatchMapping(value="/message/text")
+	public BaseResult<Message> patch(Message message) {
+		Message messageResult=this.messageService.updateText(message);
+		return BaseResult.successWithData(messageResult);
+	}
+
+	@ApiOperation(
 			value = "消息详情",
-			notes = "根据ID获取消息详情"
+			notes = "根据ID查看消息详情"
 	)
 	@GetMapping(value = "message/{id}")
-	public com.cw.swagger.entity.Message get(@PathVariable Long id) {
-		com.cw.swagger.entity.Message message = this.message.findMessage(id);
+	public Message get(@PathVariable Long id) {
+		Message message = this.messageService.findMessage(id);
 		return message;
 	}
 
@@ -77,17 +87,7 @@ public class MessageController {
 	)
 	@DeleteMapping(value = "message/{id}")
 	public void delete(@PathVariable("id") Long id) {
-		this.message.deleteMessage(id);
-	}
-
-	@ApiOperation(
-			value = "消息补丁",
-			notes = ""
-	)
-	@PatchMapping(value="/message/text")
-	public BaseResult<com.cw.swagger.entity.Message> patch(com.cw.swagger.entity.Message message) {
-		com.cw.swagger.entity.Message messageResult=this.message.updateText(message);
-		return BaseResult.successWithData(messageResult);
+		this.messageService.deleteMessage(id);
 	}
 
 }
