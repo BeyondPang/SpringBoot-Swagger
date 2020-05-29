@@ -1,5 +1,6 @@
 # SpringBoot整合Swagger-UI实现在线API文档
 **Swagger-UI**是HTML, Javascript, CSS的一个集合，是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务，可以动态地根据注解生成在线API文档。
+
 总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。
 在项目开发中，根据业务代码自动生成API文档，给前端提供在线测试，自动显示JSON格式，方便了后端与前端的沟通与调试成本。
 
@@ -50,7 +51,8 @@
 ```
 
 **3.这里可以写一个通用响应对象，返回用户数据结果**
-==**【User】**==
+
+**【User】**
 
 ```java
 	private BaseResult(T data) {
@@ -62,7 +64,8 @@
 ```
 
 **也可以写一个服务类和业务逻辑的实现类**
-==**【Message】**==
+
+**【Message】**
 
 ```java
 public interface MessageService {
@@ -133,7 +136,8 @@ public class MessageServiceImpl implements MessageService {
 }
 ```
 **4.Controller接口方法**
-==**【User】**==
+
+**【User】**
 
 ```java
 @Api(value = "用户管理", description = "用户管理API", position = 100, protocols = "http")
@@ -205,7 +209,7 @@ public class UserController {
 }
 ```
 
-==**【Message】**==
+**【Message】**
 
 ```java
 @Api(value = "消息", description = "消息操作 API", position = 100, protocols = "http")
@@ -293,6 +297,7 @@ public class MessageController {
 ```
 
 **5.添加Swagger的配置**
+
 该套 API 说明，包含作者、简介、版本、端口、服务URL等
 
 ```java
