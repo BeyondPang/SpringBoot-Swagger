@@ -2,7 +2,7 @@ package com.cw.swagger.controller;
 
 import com.cw.swagger.config.BaseResult;
 import com.cw.swagger.entity.Message;
-import com.cw.swagger.repository.MessageRepository;
+import com.cw.swagger.service.MessageRepository;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

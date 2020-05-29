@@ -1,4 +1,4 @@
-package com.cw.swagger.repository;
+package com.cw.swagger.service;
 
 import com.cw.swagger.entity.Message;
 

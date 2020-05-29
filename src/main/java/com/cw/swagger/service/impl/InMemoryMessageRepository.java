@@ -1,6 +1,7 @@
-package com.cw.swagger.repository;
+package com.cw.swagger.service.impl;
 
 import com.cw.swagger.entity.Message;
+import com.cw.swagger.service.MessageRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
