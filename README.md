@@ -355,6 +355,8 @@ public class SwaggerConfig {
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200529161120772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxNjUyNw==,size_16,color_FFFFFF,t_70)
 
-点击这里>CSDN项目博客地址-SpringBoot整合Swagger-UI实现在线API文档(https://blog.csdn.net/weixin_44316527/article/details/106421108)
+点击这里>CSDN项目博客地址-[SpringBoot整合Swagger-UI实现在线API文档](https://blog.csdn.net/weixin_44316527/article/details/106421108)
 
 点击这里>[Github项目源码地址-SpringBoot整合Swagger-UI实现在线API文档](https://github.com/ChuaWi/SpringBoot-Swagger)
+
+学习网址：[spring-boot-swagger](http://www.ityouknow.com/spring-boot.html)
